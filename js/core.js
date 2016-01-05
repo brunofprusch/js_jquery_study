@@ -4,7 +4,7 @@ function moneyTextToFloat(text) {
 }
 
 function floatToMoneyText(value) {
-	var text = (value < 1 ? "0" : "") + Math.floor(value * 100);
+	var text = (value < 1 ? "00" : "") + Math.floor(value * 100);
 	text = "R$ " + text;
 	return text.substr(0, text.length - 2) + "," + text.substr(-2);
 }
@@ -19,7 +19,7 @@ function writeTotal(value) {
 	total.innerHTML = floatToMoneyText(value);
 }
 
-function calculationTotal() {
+function calculateTotalProducts() {
 
 	var produtos = document.getElementsByClassName("product");
 
@@ -38,8 +38,14 @@ function calculationTotal() {
 
 		console.log(quantity);
 
-		total = total + (quantity * price);
+		total += parseFloat(quantity * price);
+
 	}
 
+	console.log(total);
 	writeTotal(total);
+}
+
+function onchangeQuantity(){
+	calculateTotalProducts();
 }
