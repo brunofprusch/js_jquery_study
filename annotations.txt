@@ -1,0 +1,31 @@
+JQuery
+
+- Ao utilizarmos jQuery podemos utilizar simplesmente '$', por exemplo $("p") ou jQuery("p") que é a mesma coisa.
+
+- Selecionando tag pelo tipo, id ou class
+
+  - Para selecionarmos utilizando o tipo da tag em sí:
+
+  		$("p").css("background-color", "lightgreen");
+
+  - Para selecionarmos utilizando o class:
+
+  		$(".par").css("background-color", "lightblue");
+
+  - Para solecionarmos utilizando o id:
+
+  		$("#texto").css("color", "white").val("esse é o novo texto");
+
+- Função .text();
+
+    - A função text serve tanto para pegar o valor to texto que está entre a tag quanto para escrever, ou seja é igual ao innerHTML.
+
+    	- Pegando o valor
+			
+			$("#total").text();
+
+		- Escrevendo o valor
+
+			$("#total").text(newTotalText);
+
+
