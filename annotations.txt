@@ -28,4 +28,15 @@ JQuery
 
 			$("#total").text(newTotalText);
 
+- Função .parent
+
+	Retorna o elemento pai, ou seja, retorna o primeiro elementoque estiver contento o nosso elemento atual e que respeite as regras do seletor que utilizarmos.
+
+		Exemplo: 
+
+			$(this).parent('.tarefa-item').text().trim()
+
+	No exemplo, é retornado o elemento <div> na qual o elemento <div> de class ".tarefa-item" está dentro.
+
+
 
