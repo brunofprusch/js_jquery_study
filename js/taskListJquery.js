@@ -2,12 +2,7 @@ var $lastClicked;
 
 $(document).ready(function() {
 	
-	$("#tarefa").keydown(function(event) {
-		if(event.which === 13) {
-			//onTarefaPendingEdition($("#tarefa"))
-		}
-	});
-
+	$("#tarefa").keydown(onTarefaKeydown);
 	$(".tarefa-delete").click(onTarefaDeleteClick);
 	$(".tarefa-item").click(onTarefaItemClick);
 
@@ -68,5 +63,39 @@ function savePendingEdition($tarefa) {
 
 	$(".tarefa-delete").click(onTarefaDeleteClick);
 	$tarefa.click(onTarefaItemClick);
+}
+
+function onTarefaKeydown(event) {
+	if(event.which === 13) {
+		addTerefa($('#tarefa').val());
+		$('#tarefa').val("");
+	}
+}
+
+function addTerefa(text) {
+
+	/*
+	var $tarefa = $("<div />")
+			.addClass("tarefa-item")
+		.append($("<div />")
+			.addClass("tarefa-texto")
+			.text(text))
+		.append($("<div />")
+			.addClass("tarefa-delete")
+			.text("X"))
+		.append($("<div />")
+			.addClass("clear"));
+	*/
+	
+	var tarefa = '<div class="tarefa-item">'
+				+ '<div class="tarefa-texto">' + text + '</div>'
+				+ '<div class="tarefa-delete">X</div>'
+				+ '<div class="clear"></div>'
+				+ '</div>';
+	
+
+	$("#tarefa-list").append(tarefa);
+	$(".tarefa-delete").click(onTarefaDeleteClick);
+	$(".tarefa-item").click(onTarefaItemClick);
 }
 
